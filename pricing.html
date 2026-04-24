@@ -52,7 +52,7 @@
       <div class="pricing-grid">
         <div class="pricing-card">
           <h3>Community</h3>
-          <div class="price">$0</div>
+          <div class="price">&#8377;0</div>
           <div class="period">Free forever</div>
           <ul class="pricing-features">
             <li>VS Code / Cursor extension</li>
@@ -69,8 +69,8 @@
         </div>
         <div class="pricing-card featured">
           <h3>Pro</h3>
-          <div class="price">$29<span>/mo</span></div>
-          <div class="period">Per developer seat</div>
+          <div class="price">&#8377;999<span>/mo</span></div>
+          <p class="period">or &#8377;7,999/year (save 33%)</p>
           <ul class="pricing-features">
             <li>Everything in Community</li>
             <li>Security Gateway (API proxy)</li>
@@ -87,8 +87,8 @@
         </div>
         <div class="pricing-card">
           <h3>Enterprise</h3>
-          <div class="price">Custom</div>
-          <div class="period">Annual contract</div>
+          <div class="price">&#8377;4,999<span>/mo</span></div>
+          <div class="period">Per developer seat</div>
           <ul class="pricing-features">
             <li>Everything in Pro</li>
             <li>Breach compliance engine (PCI-DSS, SOX, HIPAA)</li>
@@ -122,7 +122,7 @@
         </div>
         <div class="upi-id">parthamehta10@okhdfcbank</div>
         <div style="margin:1.5rem 0;">
-          <a href="upi://pay?pa=parthamehta10@okhdfcbank&pn=AgnosticSecurity&am=2399&cu=INR&tn=AgnosticSecurity%20Pro" class="gpay-btn" id="gpay-link">
+          <a href="upi://pay?pa=parthamehta10@okhdfcbank&pn=AgnosticSecurity&am=999&cu=INR&tn=AgnosticSecurity%20Pro" class="gpay-btn" id="gpay-link">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
             Pay with GPay
           </a>
@@ -168,9 +168,9 @@
           <div class="form-group">
             <label for="lic-plan">Plan</label>
             <select id="lic-plan" class="form-input" required>
-              <option value="pro-monthly" selected>Pro — $29/mo</option>
-              <option value="pro-annual">Pro — $290/year</option>
-              <option value="enterprise">Enterprise — Custom</option>
+              <option value="pro-monthly" selected>Pro — &#8377;999/mo</option>
+              <option value="pro-annual">Pro — &#8377;7,999/year</option>
+              <option value="enterprise">Enterprise — &#8377;4,999/mo</option>
             </select>
           </div>
           <div class="form-group">
@@ -294,7 +294,7 @@
 
     document.getElementById('lic-plan').addEventListener('change', function() {
       var link = document.getElementById('gpay-link');
-      var amounts = {'pro-monthly':'2399','pro-annual':'23999','enterprise':'9999'};
+      var amounts = {'pro-monthly':'999','pro-annual':'7999','enterprise':'4999'};
       var names = {'pro-monthly':'AgnosticSecurity%20Pro','pro-annual':'AgnosticSecurity%20Pro%20Annual','enterprise':'AgnosticSecurity%20Enterprise'};
       var am = amounts[this.value] || '2399';
       var tn = names[this.value] || 'AgnosticSecurity%20Pro';

@@ -4,11 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About — AgnosticSecurity</title>
+  <meta name="description" content="Making AI agents accountable. Security shouldn't depend on your model choice.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔒</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    .story-block{background:var(--bg-surface);border:1px solid var(--border);border-radius:16px;padding:2.5rem;margin:2rem 0;line-height:1.8;color:var(--text-secondary);}
+    .story-block h3{color:var(--text);margin-bottom:1rem;}
+    .story-block p{margin-bottom:1rem;}
+    .story-block p:last-child{margin-bottom:0;}
+    .team-card{background:var(--bg-surface);border:1px solid var(--border);border-radius:16px;padding:2rem;text-align:center;}
+    .team-card .avatar{width:72px;height:72px;border-radius:50%;background:var(--accent);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:700;margin-bottom:1rem;}
+    .team-card h4{margin-bottom:0.25rem;}
+    .team-card p{font-size:0.85rem;color:var(--text-secondary);}
+    .team-social{display:flex;gap:0.5rem;justify-content:center;margin-top:0.75rem;}
+    .team-social a{font-size:0.8rem;color:var(--accent);text-decoration:none;}
+    .team-social a:hover{text-decoration:underline;}
+    .timeline{position:relative;padding-left:2rem;margin:2rem 0;}
+    .timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--border);}
+    .timeline-item{position:relative;margin-bottom:2rem;padding-left:1.5rem;}
+    .timeline-item::before{content:'';position:absolute;left:-2.05rem;top:0.35rem;width:12px;height:12px;border-radius:50%;background:var(--accent);border:2px solid var(--bg);}
+    .timeline-item h4{margin-bottom:0.25rem;font-size:0.95rem;}
+    .timeline-item p{font-size:0.85rem;color:var(--text-secondary);line-height:1.6;}
+    .timeline-item .timeline-date{font-size:0.8rem;color:var(--accent);font-weight:600;margin-bottom:0.25rem;}
+  </style>
 </head>
 <body>
   <nav class="nav">
@@ -23,81 +44,192 @@
         <a href="blog.html">Blog</a>
         <a href="about.html" class="active">About</a>
         <a href="contact.html">Contact</a>
-        <a href="https://github.com/kaushikdharamshi/AgnosticSecurity" class="nav-cta">GitHub →</a>
+        <a href="https://github.com/kaushikdharamshi/AgnosticSecurity" class="nav-cta">GitHub &rarr;</a>
       </div>
     </div>
   </nav>
 
   <div class="page-header">
     <h1>Making AI agents accountable</h1>
-    <p>Security shouldn't depend on your model choice.</p>
+    <p>We believe security shouldn't depend on your model choice. Every AI agent deserves enterprise-grade DLP.</p>
   </div>
 
+  <!-- Intro -->
   <section>
+    <div class="container-narrow">
+      <div class="fade-in" style="font-size:0.95rem;color:var(--text-secondary);line-height:1.8;">
+        <p style="margin-bottom:1.5rem;">AI coding assistants are running on developer machines with full access to .env files, API keys, SSH keys, customer PII, and source code. Every compliance framework &mdash; PCI-DSS, SOX, HIPAA &mdash; requires strict controls over sensitive data access. AI agents bypass every one of them.</p>
+        <p>AgnosticSecurity was born from the realization that DLP for AI agents can't be vendor-specific, cloud-dependent, or bolted on as an afterthought. It needs to be model-agnostic, local-first, and operational in 30 seconds.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission / Vision -->
+  <section class="bg-warm">
     <div class="container">
-      <div class="grid-2">
+      <div class="grid-2 fade-in" style="gap:2rem;">
         <div class="card">
+          <div class="card-icon indigo">🎯</div>
           <h3>Our Mission</h3>
-          <p>Give every development team enterprise-grade DLP for their AI coding assistants — without vendor lock-in, cloud dependencies, or changes to existing workflows. Security that works with any LLM, any IDE, any deployment model.</p>
+          <p>Give every development team enterprise-grade DLP for their AI coding assistants &mdash; without vendor lock-in, cloud dependencies, or changes to existing workflows. Security that works with any LLM, any IDE, any deployment model.</p>
         </div>
         <div class="card">
+          <div class="card-icon purple">🔭</div>
           <h3>Our Vision</h3>
-          <p>A world where AI agents are as accountable as human developers. Every file access logged, every command audited, every prompt screened — automatically, transparently, and without slowing anyone down.</p>
+          <p>A world where AI agents are as accountable as human developers. Every file access logged, every command audited, every prompt screened &mdash; automatically, transparently, and without slowing anyone down.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="bg-warm">
+  <!-- Principles -->
+  <section>
     <div class="container">
-      <div class="section-header center">
+      <div class="section-header center fade-in">
         <span class="section-eyebrow"><span class="dot"></span> Principles</span>
         <h2 class="section-title">What drives us</h2>
       </div>
-      <div class="grid-4">
-        <div class="card">
-          <h3>Local-First</h3>
-          <p>All scanning runs on the developer's machine. Zero telemetry. Zero cloud dependencies in the critical path.</p>
+      <div class="grid-4 fade-in">
+        <div class="card" style="text-align:center;">
+          <div class="card-icon indigo" style="margin:0 auto 1rem;">🔍</div>
+          <h3>Transparency</h3>
+          <p>Every security decision is logged, explained, and auditable. No black boxes.</p>
         </div>
-        <div class="card">
-          <h3>Model Agnostic</h3>
-          <p>Works with OpenAI, Anthropic, Google, Azure, GitHub Models, and local Ollama. Swap providers without changing security posture.</p>
+        <div class="card" style="text-align:center;">
+          <div class="card-icon green" style="margin:0 auto 1rem;">🔗</div>
+          <h3>Integrity</h3>
+          <p>SHA-256 hash chains, immutable writes, tamper detection on every read.</p>
         </div>
-        <div class="card">
-          <h3>Open Source</h3>
-          <p>MIT licensed. Inspect every line of code that protects your secrets. No black boxes, no trust-us-bro security.</p>
+        <div class="card" style="text-align:center;">
+          <div class="card-icon orange" style="margin:0 auto 1rem;">⚡</div>
+          <h3>Simplicity</h3>
+          <p>Install the extension, security is active. Zero config, zero code changes.</p>
         </div>
-        <div class="card">
-          <h3>Zero Config</h3>
-          <p>Install the extension, security is active. No YAML files, no policy editors, no training. It just works.</p>
+        <div class="card" style="text-align:center;">
+          <div class="card-icon purple" style="margin:0 auto 1rem;">🔓</div>
+          <h3>Open Core</h3>
+          <p>The full security engine is open source. Enterprise features layer on top.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section>
-    <div class="container">
-      <div class="section-header center">
+  <!-- Origin Story -->
+  <section class="bg-warm">
+    <div class="container-narrow">
+      <div class="section-header fade-in">
         <span class="section-eyebrow"><span class="dot"></span> Origin Story</span>
         <h2 class="section-title">Why we built this</h2>
       </div>
-      <div class="container-narrow">
-        <p style="color: var(--text-secondary); line-height: 1.8; font-size: 1rem;">
-          We watched AI coding assistants get deployed across enterprise teams with zero security controls. Copilot could read .env files. Claude Code could execute <code>cat ~/.ssh/id_rsa</code>. LangChain agents could exfiltrate customer data through API responses. Every compliance framework — PCI-DSS, SOX, HIPAA — was being violated silently.
-        </p>
-        <p style="color: var(--text-secondary); line-height: 1.8; font-size: 1rem; margin-top: 1rem;">
-          The existing solutions were vendor-specific (GitHub's content exclusions only work with Copilot), reactive (secret scanning catches committed secrets, not prevented reads), or required massive infrastructure changes. We built AgnosticSecurity to be the missing layer — model-agnostic, local-first, and operational in 30 seconds.
-        </p>
+      <div class="story-block fade-in">
+        <h3>One problem. Seven layers. Zero compromise.</h3>
+        <p>We watched AI coding assistants get deployed across enterprise teams with zero security controls. Copilot could read .env files. Claude Code could execute <code>cat ~/.ssh/id_rsa</code>. LangChain agents could exfiltrate customer data through API responses. Every compliance framework was being violated silently.</p>
+        <p>The existing solutions were vendor-specific (GitHub's content exclusions only work with Copilot), reactive (secret scanning catches committed secrets, not prevented reads), or required massive infrastructure changes.</p>
+        <p>So we built AgnosticSecurity &mdash; a model-agnostic security platform that intercepts file reads, commands, prompts, API calls, and responses across ALL AI coding tools. Seven layers of defense, working with any LLM provider, running entirely on the developer's machine.</p>
+        <p>The result: install once, everything is protected. Swap from Copilot to Claude Code to Cursor &mdash; same DLP policies, same audit logs, same compliance rules.</p>
       </div>
     </div>
   </section>
 
-    <footer class="footer">
+  <!-- Team -->
+  <section>
+    <div class="container">
+      <div class="section-header center fade-in">
+        <span class="section-eyebrow"><span class="dot"></span> Team</span>
+        <h2 class="section-title">The people behind AgnosticSecurity</h2>
+      </div>
+      <div class="grid-4 fade-in">
+        <div class="team-card">
+          <div class="avatar">PM</div>
+          <h4>Partha Mehta</h4>
+          <p>Co-Founder</p>
+          <div class="team-social">
+            <a href="https://github.com/parthamehta123" target="_blank">GitHub</a>
+            <a href="https://www.producthunt.com/@partha_mehta" target="_blank">Product Hunt</a>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="avatar" style="background:#7c3aed;">KD</div>
+          <h4>Kaushik Dharamshi</h4>
+          <p>Co-Founder</p>
+          <div class="team-social">
+            <a href="https://github.com/kaushikdharamshi" target="_blank">GitHub</a>
+            <a href="https://www.producthunt.com/@kaushik_dharamshi" target="_blank">Product Hunt</a>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="avatar" style="background:var(--border);color:var(--text-secondary);">+</div>
+          <h4>Join Us</h4>
+          <p>Open Roles</p>
+          <div class="team-social">
+            <a href="contact.html">Get in touch</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="bg-warm">
+    <div class="container-narrow">
+      <div class="section-header fade-in">
+        <span class="section-eyebrow"><span class="dot"></span> Timeline</span>
+        <h2 class="section-title">Building in public</h2>
+      </div>
+      <div class="timeline fade-in">
+        <div class="timeline-item">
+          <div class="timeline-date">Q1 2026 — January</div>
+          <h4>SecurityAgent for OpenClaw</h4>
+          <p>Built the initial DLP plugin for OpenClaw — file read gate, exec command guard, and prompt intent analysis.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">Q1 2026 — February</div>
+          <h4>Model-agnostic gateway</h4>
+          <p>Launched the FastAPI security proxy supporting OpenAI, Anthropic, Gemini, Azure, and GitHub Models with PII redaction and injection detection.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">Q1 2026 — March</div>
+          <h4>VS Code extension + Chrome extension</h4>
+          <p>Shipped the Copilot guardrail extension with multi-assistant support (Copilot, Cursor, Windsurf, Cody) and a Chrome DLP guard for browser-based AI tools.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">Q1 2026 — March</div>
+          <h4>securityagent-core extraction</h4>
+          <p>Extracted the DLP engine into a reusable package. AgnosticSecurity and SecurityAgent both consume the same core.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">Q2 2026 — April</div>
+          <h4>Privacy controls + v4.0.0</h4>
+          <p>Added system prompt masking, media filtering, AES-256-GCM session encryption, and modifying output pipeline. False-positive elimination across the full DLP stack. 248+ automated tests.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">Q2 2026 — April</div>
+          <h4>Effect-layer defenses</h4>
+          <p>Shipped taint tracking, egress allowlist, lethal trifecta detector, tool call argument scanning, and code scanner for embedded secrets.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container-narrow fade-in">
+      <h2 class="section-title" style="position:relative;z-index:1;">Secure your AI agents today.</h2>
+      <p class="section-sub" style="margin:1rem auto 2rem;position:relative;z-index:1;">Whether you're using Copilot, Claude Code, Cursor, or LangChain &mdash; we'd love to hear from you.</p>
+      <div style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;position:relative;z-index:1;">
+        <a href="contact.html" class="btn btn-primary btn-lg">Get in Touch</a>
+        <a href="https://github.com/kaushikdharamshi/AgnosticSecurity" target="_blank" class="btn btn-outline btn-lg">View on GitHub &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div>
           <div class="footer-brand"><span class="icon">🔒</span> AgnosticSecurity</div>
-          <p class="footer-desc">Enterprise DLP for AI coding agents — model-agnostic security middleware that intercepts file reads, commands, prompts, API calls, and responses across all AI coding tools.</p>
+          <p class="footer-desc">Enterprise DLP for AI coding agents &mdash; model-agnostic security middleware that intercepts file reads, commands, prompts, API calls, and responses across all AI coding tools.</p>
         </div>
         <div>
           <h4>Product</h4>
