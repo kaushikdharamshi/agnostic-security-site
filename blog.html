@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — AgnosticSecurity</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔒</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand"><span class="icon">🔒</span> <span class="highlight">Agnostic</span>Security</a>
+      <button class="nav-toggle" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="docs.html">Docs</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://github.com/kaushikdharamshi/AgnosticSecurity" class="nav-cta">GitHub →</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <h1>Insights &amp; Updates</h1>
+    <p>Engineering deep-dives, threat analysis, and product updates.</p>
+  </div>
+
+  <!-- Featured -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow"><span class="dot"></span> Featured</span>
+      </div>
+      <div class="card" style="padding: 2.5rem;">
+        <div class="blog-card-meta">
+          <span>Engineering</span> · <span>April 2026</span> · <span>8 min read</span>
+        </div>
+        <h2 style="font-size: 1.5rem; margin-bottom: 0.75rem;">Why AI Coding Agents Need DLP — Not Just Guardrails</h2>
+        <p style="color: var(--text-secondary); line-height: 1.7; max-width: 700px;">
+          Guardrails tell the AI "don't do that." DLP prevents the data from ever reaching the AI in the first place. When your .env file contains production database credentials, the difference between "please don't read this" and "you physically cannot read this" is the difference between a suggestion and a security control. We built AgnosticSecurity around the second approach.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Posts -->
+  <section class="bg-warm">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow"><span class="dot"></span> Latest Posts</span>
+        <h2 class="section-title">From the engineering blog</h2>
+      </div>
+      <div class="blog-grid">
+        <div class="blog-card">
+          <div class="blog-card-img">🛡️</div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta"><span>Threat Model</span> · <span>Apr 2026</span></div>
+            <h3>Prompt Injection vs. Data Exfiltration: Two Different Threats</h3>
+            <p>Prompt injection changes what the AI does. Data exfiltration steals what the AI sees. Most security tools only address one. Here's how we handle both.</p>
+          </div>
+        </div>
+        <div class="blog-card">
+          <div class="blog-card-img">⚡</div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta"><span>Architecture</span> · <span>Apr 2026</span></div>
+            <h3>How Our 4-Layer Prompt Analysis Works in Under 50ms</h3>
+            <p>Regex for speed, Pydantic rules for structure, local LLM for nuance. Early-return optimization means most prompts are classified in &lt;5ms.</p>
+          </div>
+        </div>
+        <div class="blog-card">
+          <div class="blog-card-img">🏥</div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta"><span>Compliance</span> · <span>Apr 2026</span></div>
+            <h3>HIPAA Compliance for AI Agents: What You Need to Know</h3>
+            <p>If your AI agent can read patient records, you have a HIPAA problem. We built breach classification for 13 fintech and healthcare breach types.</p>
+          </div>
+        </div>
+        <div class="blog-card">
+          <div class="blog-card-img">🔬</div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta"><span>Red Team</span> · <span>Apr 2026</span></div>
+            <h3>46 Ways We Tried to Break Our Own DLP Engine</h3>
+            <p>Base64 encoding, Unicode evasion, multi-step exfiltration, semantic smuggling. Our adversarial red-team suite tests every bypass technique we could think of.</p>
+          </div>
+        </div>
+        <div class="blog-card">
+          <div class="blog-card-img">🔌</div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta"><span>Integration</span> · <span>Apr 2026</span></div>
+            <h3>Zero-Code LLM Monitoring with Auto-Instrumentation</h3>
+            <p>How sitecustomize.py monkey-patches OpenAI, Anthropic, and LangChain SDKs at import time — monitoring every LLM call without touching your code.</p>
+          </div>
+        </div>
+        <div class="blog-card">
+          <div class="blog-card-img">🌊</div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta"><span>Deep Dive</span> · <span>Apr 2026</span></div>
+            <h3>The Lethal Trifecta: When Private Data Meets Untrusted Input Meets External Comms</h3>
+            <p>Simon Willison's threat model, implemented. When all three conditions are met simultaneously, we block MCP tool calls with network access.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="simple-footer">
+    <div class="simple-footer-inner">
+      <span class="simple-footer-copy">© 2026 AgnosticSecurity. Open source under MIT License.</span>
+      <div class="simple-footer-links">
+        <a href="https://github.com/kaushikdharamshi/AgnosticSecurity">GitHub</a>
+        <a href="https://github.com/kaushikdharamshi/AgnosticSecurity/releases">Releases</a>
+        <a href="docs.html">Docs</a>
+      </div>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>

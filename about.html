@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — AgnosticSecurity</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔒</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand"><span class="icon">🔒</span> <span class="highlight">Agnostic</span>Security</a>
+      <button class="nav-toggle" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="docs.html">Docs</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html" class="active">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://github.com/kaushikdharamshi/AgnosticSecurity" class="nav-cta">GitHub →</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <h1>Making AI agents accountable</h1>
+    <p>Security shouldn't depend on your model choice.</p>
+  </div>
+
+  <section>
+    <div class="container">
+      <div class="grid-2">
+        <div class="card">
+          <h3>Our Mission</h3>
+          <p>Give every development team enterprise-grade DLP for their AI coding assistants — without vendor lock-in, cloud dependencies, or changes to existing workflows. Security that works with any LLM, any IDE, any deployment model.</p>
+        </div>
+        <div class="card">
+          <h3>Our Vision</h3>
+          <p>A world where AI agents are as accountable as human developers. Every file access logged, every command audited, every prompt screened — automatically, transparently, and without slowing anyone down.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-warm">
+    <div class="container">
+      <div class="section-header center">
+        <span class="section-eyebrow"><span class="dot"></span> Principles</span>
+        <h2 class="section-title">What drives us</h2>
+      </div>
+      <div class="grid-4">
+        <div class="card">
+          <h3>Local-First</h3>
+          <p>All scanning runs on the developer's machine. Zero telemetry. Zero cloud dependencies in the critical path.</p>
+        </div>
+        <div class="card">
+          <h3>Model Agnostic</h3>
+          <p>Works with OpenAI, Anthropic, Google, Azure, GitHub Models, and local Ollama. Swap providers without changing security posture.</p>
+        </div>
+        <div class="card">
+          <h3>Open Source</h3>
+          <p>MIT licensed. Inspect every line of code that protects your secrets. No black boxes, no trust-us-bro security.</p>
+        </div>
+        <div class="card">
+          <h3>Zero Config</h3>
+          <p>Install the extension, security is active. No YAML files, no policy editors, no training. It just works.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-header center">
+        <span class="section-eyebrow"><span class="dot"></span> Origin Story</span>
+        <h2 class="section-title">Why we built this</h2>
+      </div>
+      <div class="container-narrow">
+        <p style="color: var(--text-secondary); line-height: 1.8; font-size: 1rem;">
+          We watched AI coding assistants get deployed across enterprise teams with zero security controls. Copilot could read .env files. Claude Code could execute <code>cat ~/.ssh/id_rsa</code>. LangChain agents could exfiltrate customer data through API responses. Every compliance framework — PCI-DSS, SOX, HIPAA — was being violated silently.
+        </p>
+        <p style="color: var(--text-secondary); line-height: 1.8; font-size: 1rem; margin-top: 1rem;">
+          The existing solutions were vendor-specific (GitHub's content exclusions only work with Copilot), reactive (secret scanning catches committed secrets, not prevented reads), or required massive infrastructure changes. We built AgnosticSecurity to be the missing layer — model-agnostic, local-first, and operational in 30 seconds.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="simple-footer">
+    <div class="simple-footer-inner">
+      <span class="simple-footer-copy">© 2026 AgnosticSecurity. Open source under MIT License.</span>
+      <div class="simple-footer-links">
+        <a href="https://github.com/kaushikdharamshi/AgnosticSecurity">GitHub</a>
+        <a href="https://github.com/kaushikdharamshi/AgnosticSecurity/releases">Releases</a>
+        <a href="docs.html">Docs</a>
+      </div>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>

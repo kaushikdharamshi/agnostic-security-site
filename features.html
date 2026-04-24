@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Features — AgnosticSecurity</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔒</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand"><span class="icon">🔒</span> <span class="highlight">Agnostic</span>Security</a>
+      <button class="nav-toggle" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="features.html" class="active">Features</a>
+        <a href="docs.html">Docs</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://github.com/kaushikdharamshi/AgnosticSecurity" class="nav-cta">GitHub →</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <h1>Built for security. Designed for developers.</h1>
+    <p>Every feature works offline, requires zero cloud dependencies, and integrates with any LLM provider.</p>
+  </div>
+
+  <!-- Core Engine -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow"><span class="dot"></span> Core Engine</span>
+        <h2 class="section-title">Multi-layer <span class="accent">DLP Engine</span></h2>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-icon indigo">📁</div>
+          <h3>2-Layer File Access Gate</h3>
+          <p>Layer 1: filename/extension blocking (.env, .pem, credentials, SSH keys). Layer 2: content DLP scan for PII and credentials. Both always active — no off switch.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon green">⌨️</div>
+          <h3>Exec Command Guard</h3>
+          <p>20+ regex patterns anchored to command position. High-confidence rules block immediately; low-confidence rules get LLM verification via local Ollama. Allows localhost curl, ssh-add, nc -z.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon blue">🧠</div>
+          <h3>4-Layer Prompt Analysis</h3>
+          <p>Layer 0: PII regex (&lt;50ms). Layer 1: Intent keywords (weighted scoring). Layer 2: Pydantic rules with negation awareness. Layer 3: Local Ollama LLM for ambiguous cases.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon orange">📤</div>
+          <h3>Output Scanner</h3>
+          <p>Scans command output and LLM responses for PII and credentials. Redacts in-place with [REDACTED:PatternName]. Modifying pipeline — doesn't block, fixes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Privacy Controls -->
+  <section class="bg-warm">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow"><span class="dot"></span> Privacy Controls</span>
+        <h2 class="section-title">Outbound data <span class="accent">protection</span></h2>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-icon purple">🖥️</div>
+          <h3>System Prompt Masking</h3>
+          <p>Strips hostname, OS version, username, repo paths, and shell paths from system messages before they reach the LLM.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon red">📸</div>
+          <h3>Media Filtering</h3>
+          <p>Blocks image, audio, and video attachments from multi-part messages. Prevents visual PII leakage via screenshots or screen recordings.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon indigo">🔑</div>
+          <h3>Session Encryption</h3>
+          <p>AES-256-GCM encryption for audit log entries and session data at rest. PBKDF2 key derivation from gateway key or auto-generated machine key.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon green">🔐</div>
+          <h3>PII Redaction</h3>
+          <p>Detects and redacts email, phone, SSN, credit cards, API keys, IPv4 addresses in both inputs and outputs. Zero-false-positive philosophy.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon orange">🌐</div>
+          <h3>Egress Allowlist</h3>
+          <p>EA_ALLOWED_DOMAINS blocks curl/wget to unlisted external hosts. Localhost always allowed. Prevents data exfiltration to unauthorized domains.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon blue">🔗</div>
+          <h3>Taint Tracking</h3>
+          <p>Tags sensitive data at ingress, detects at egress via SHA-256 hash + n-gram Jaccard + substring matching. Cross-session persistence with 24h TTL.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compliance -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow"><span class="dot"></span> Compliance</span>
+        <h2 class="section-title">Audit-ready from <span class="accent">day one</span></h2>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-icon green">📊</div>
+          <h3>Breach Compliance Engine</h3>
+          <p>13 fintech breach types covering PCI-DSS, SOX, and HIPAA. Rule-based classification — sub-1ms, deterministic, no hallucination risk.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon indigo">📝</div>
+          <h3>Immutable Audit Trail</h3>
+          <p>SHA-256 checksummed breach records, append-only SQLite, periodic tamper detection scans, and JSONL archival. Every event logged.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon purple">🤖</div>
+          <h3>Auto-Instrumentation</h3>
+          <p>Zero-code monkey-patching for OpenAI, Anthropic, and LangChain SDKs. Every LLM call monitored with zero application code changes.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon orange">⚠️</div>
+          <h3>Lethal Trifecta Detector</h3>
+          <p>Tracks 3 conditions: private data access + untrusted input + external comm capability. When all 3 met — MCP tools with network are blocked.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Extensions -->
+  <section class="bg-warm">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow"><span class="dot"></span> Extensions</span>
+        <h2 class="section-title">IDE and browser <span class="accent">protection</span></h2>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-icon blue">🧩</div>
+          <h3>VS Code / Cursor Extension</h3>
+          <p>Auto-disables Copilot for sensitive files. Maintains .copilotignore/.cursorignore/.aiignore. Inline secret diagnostics. Write protection — reverts AI edits to sensitive files. @security chat participant for prompt scanning.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon orange">🌐</div>
+          <h3>Chrome Extension</h3>
+          <p>DLP guard for browser-based AI tools (Claude web, ChatGPT, Gemini). Prevents PII and credentials from being pasted into LLM web interfaces.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="simple-footer">
+    <div class="simple-footer-inner">
+      <span class="simple-footer-copy">© 2026 AgnosticSecurity. Open source under MIT License.</span>
+      <div class="simple-footer-links">
+        <a href="https://github.com/kaushikdharamshi/AgnosticSecurity">GitHub</a>
+        <a href="https://github.com/kaushikdharamshi/AgnosticSecurity/releases">Releases</a>
+        <a href="docs.html">Docs</a>
+      </div>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>

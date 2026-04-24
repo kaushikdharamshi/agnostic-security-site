@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — AgnosticSecurity</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔒</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand"><span class="icon">🔒</span> <span class="highlight">Agnostic</span>Security</a>
+      <button class="nav-toggle" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="docs.html">Docs</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="active">Contact</a>
+        <a href="https://github.com/kaushikdharamshi/AgnosticSecurity" class="nav-cta">GitHub →</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <h1>Let's talk</h1>
+    <p>Enterprise pilot, integration question, or just want to say hi.</p>
+  </div>
+
+  <section>
+    <div class="container">
+      <div class="grid-2">
+        <div>
+          <div class="card" style="margin-bottom: 1rem;">
+            <h3>GitHub</h3>
+            <p>Bug reports, feature requests, and discussions.</p>
+            <a href="https://github.com/kaushikdharamshi/AgnosticSecurity/issues" style="color: var(--accent); font-weight: 600; font-size: 0.9rem;">Open an Issue →</a>
+          </div>
+          <div class="card" style="margin-bottom: 1rem;">
+            <h3>Enterprise Sales</h3>
+            <p>Custom deployments, compliance requirements, SLAs.</p>
+            <p style="color: var(--accent); font-weight: 600; font-size: 0.9rem; margin-top: 0.5rem;">partha@agnosticsecurity.dev</p>
+          </div>
+          <div class="card">
+            <h3 style="margin-bottom: 0.5rem;">Follow Us</h3>
+            <div style="display: flex; gap: 1.5rem; margin-top: 0.5rem;">
+              <a href="https://github.com/kaushikdharamshi" style="color: var(--text-secondary); font-size: 0.9rem;">GitHub</a>
+              <a href="https://linkedin.com/in/parthamehta" style="color: var(--text-secondary); font-size: 0.9rem;">LinkedIn</a>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <h3 style="margin-bottom: 1.5rem;">Send us a message</h3>
+          <form id="contact-form">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" class="form-input" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" class="form-input" placeholder="you@company.com" required>
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <select id="subject" class="form-input">
+                <option>Enterprise Pilot</option>
+                <option>Integration Help</option>
+                <option>Bug Report</option>
+                <option>Partnership</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" class="form-input" placeholder="Tell us what you need..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Send Message</button>
+          </form>
+          <div id="form-success" style="display:none; text-align:center; padding: 2rem 0;">
+            <h3>Message sent!</h3>
+            <p style="color: var(--text-secondary); margin-top: 0.5rem;">We'll get back to you within 24 hours.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="simple-footer">
+    <div class="simple-footer-inner">
+      <span class="simple-footer-copy">© 2026 AgnosticSecurity. Open source under MIT License.</span>
+      <div class="simple-footer-links">
+        <a href="https://github.com/kaushikdharamshi/AgnosticSecurity">GitHub</a>
+        <a href="https://github.com/kaushikdharamshi/AgnosticSecurity/releases">Releases</a>
+        <a href="docs.html">Docs</a>
+      </div>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      this.style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+    });
+  </script>
+</body>
+</html>

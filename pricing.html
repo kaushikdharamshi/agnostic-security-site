@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing — AgnosticSecurity</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔒</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand"><span class="icon">🔒</span> <span class="highlight">Agnostic</span>Security</a>
+      <button class="nav-toggle" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="docs.html">Docs</a>
+        <a href="pricing.html" class="active">Pricing</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://github.com/kaushikdharamshi/AgnosticSecurity" class="nav-cta">GitHub →</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <h1>Simple pricing. No surprises.</h1>
+    <p>Open source core. Enterprise features for teams that need compliance.</p>
+  </div>
+
+  <section>
+    <div class="container">
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <h3>Community</h3>
+          <div class="price">$0</div>
+          <div class="period">Free forever</div>
+          <ul class="pricing-features">
+            <li>VS Code / Cursor extension</li>
+            <li>Chrome extension</li>
+            <li>Claude Code hooks (DLP gate)</li>
+            <li>File access gate (2-layer)</li>
+            <li>Exec command guard (20+ patterns)</li>
+            <li>PII redaction (6 patterns)</li>
+            <li>Prompt intent analysis (4-layer)</li>
+            <li>Local audit log (SQLite)</li>
+            <li>Community support (GitHub Issues)</li>
+          </ul>
+          <a href="https://github.com/kaushikdharamshi/AgnosticSecurity" class="btn btn-outline" style="width:100%;justify-content:center;">Get Started</a>
+        </div>
+        <div class="pricing-card featured">
+          <h3>Pro</h3>
+          <div class="price">$29<span>/mo</span></div>
+          <div class="period">Per developer seat</div>
+          <ul class="pricing-features">
+            <li>Everything in Community</li>
+            <li>Security Gateway (API proxy)</li>
+            <li>LLM Proxy with cost tracking</li>
+            <li>System prompt masking</li>
+            <li>Media attachment filtering</li>
+            <li>AES-256-GCM session encryption</li>
+            <li>Block rules engine</li>
+            <li>Auto-instrumentation SDK</li>
+            <li>Webhook alerting (Slack, Discord)</li>
+            <li>Email support</li>
+          </ul>
+          <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center;">Contact Sales</a>
+        </div>
+        <div class="pricing-card">
+          <h3>Enterprise</h3>
+          <div class="price">Custom</div>
+          <div class="period">Annual contract</div>
+          <ul class="pricing-features">
+            <li>Everything in Pro</li>
+            <li>Breach compliance engine (PCI-DSS, SOX, HIPAA)</li>
+            <li>Taint tracking + egress allowlist</li>
+            <li>Lethal trifecta detector</li>
+            <li>Agent registration + human-in-the-loop</li>
+            <li>Real-time unified dashboard</li>
+            <li>Multi-tenant isolation</li>
+            <li>Red-team eval suite</li>
+            <li>Dedicated support + SLA</li>
+            <li>On-prem deployment</li>
+          </ul>
+          <a href="contact.html" class="btn btn-outline" style="width:100%;justify-content:center;">Contact Sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-warm">
+    <div class="container">
+      <div class="section-header center">
+        <span class="section-eyebrow"><span class="dot"></span> FAQ</span>
+        <h2 class="section-title">Common questions</h2>
+      </div>
+      <div class="container-narrow">
+        <div class="card" style="margin-bottom: 1rem;">
+          <h3>Is the open source version production-ready?</h3>
+          <p>Yes. The Community tier includes the full DLP engine, VS Code extension, and Claude Code hooks. It's the same code that runs in Pro and Enterprise — no artificial limitations.</p>
+        </div>
+        <div class="card" style="margin-bottom: 1rem;">
+          <h3>Does it require internet access?</h3>
+          <p>No. All scanning runs locally. The optional Ollama LLM layer is also local. The only network calls are to your chosen LLM provider — and those go through the security gateway.</p>
+        </div>
+        <div class="card" style="margin-bottom: 1rem;">
+          <h3>Can I use it with Cursor / Windsurf / Cody?</h3>
+          <p>Yes. The VS Code extension supports Copilot, Cursor, Windsurf, and Cody via .copilotignore, .cursorignore, and .aiignore. The DLP engine works with any tool that can call shell commands or HTTP APIs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="simple-footer">
+    <div class="simple-footer-inner">
+      <span class="simple-footer-copy">© 2026 AgnosticSecurity. Open source under MIT License.</span>
+      <div class="simple-footer-links">
+        <a href="https://github.com/kaushikdharamshi/AgnosticSecurity">GitHub</a>
+        <a href="https://github.com/kaushikdharamshi/AgnosticSecurity/releases">Releases</a>
+        <a href="docs.html">Docs</a>
+      </div>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>
