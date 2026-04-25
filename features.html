@@ -28,172 +28,84 @@
     </div>
   </nav>
 
-  <div class="page-header">
-    <h1>Built for security. Designed for developers.</h1>
-    <p>Every feature works offline, requires zero cloud dependencies, and integrates with any LLM provider.</p>
-  </div>
-
-  <!-- Core Engine -->
-  <section>
+  <section style="padding-top: 6rem;">
     <div class="container">
-      <div class="section-header">
-        <span class="section-eyebrow"><span class="dot"></span> Core Engine</span>
-        <h2 class="section-title">Multi-layer <span class="accent">DLP Engine</span></h2>
-      </div>
-      <div class="grid-2">
-        <div class="card">
-          <div class="card-icon indigo">📁</div>
-          <h3>2-Layer File Access Gate</h3>
-          <p>Layer 1: filename/extension blocking (.env, .pem, credentials, SSH keys). Layer 2: content DLP scan for PII and credentials. Both always active — no off switch.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon green">⌨️</div>
-          <h3>Exec Command Guard</h3>
-          <p>20+ regex patterns anchored to command position. High-confidence rules block immediately; low-confidence rules get LLM verification via local Ollama. Allows localhost curl, ssh-add, nc -z.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon blue">🧠</div>
-          <h3>4-Layer Prompt Analysis</h3>
-          <p>Layer 0: PII regex (&lt;50ms). Layer 1: Intent keywords (weighted scoring). Layer 2: Pydantic rules with negation awareness. Layer 3: Local Ollama LLM for ambiguous cases.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon orange">📤</div>
-          <h3>Output Scanner</h3>
-          <p>Scans command output and LLM responses for PII and credentials. Redacts in-place with [REDACTED:PatternName]. Modifying pipeline — doesn't block, fixes.</p>
-        </div>
+      <div class="section-header center">
+        <span class="section-eyebrow"><span class="dot"></span> v1.4.0</span>
+        <h2 class="section-title">14 Security Components, <span class="accent">Zero Gaps</span></h2>
+        <p class="section-sub">Every layer operates independently. Any single component can fail and the others still protect.</p>
       </div>
     </div>
   </section>
 
-  <!-- Privacy Controls -->
+  <!-- Core DLP -->
   <section class="bg-warm">
     <div class="container">
-      <div class="section-header">
-        <span class="section-eyebrow"><span class="dot"></span> Privacy Controls</span>
-        <h2 class="section-title">Outbound data <span class="accent">protection</span></h2>
-      </div>
+      <div class="section-header"><h2 class="section-title">Core <span class="accent">DLP Engine</span></h2></div>
       <div class="grid-3">
-        <div class="card">
-          <div class="card-icon purple">🖥️</div>
-          <h3>System Prompt Masking</h3>
-          <p>Strips hostname, OS version, username, repo paths, and shell paths from system messages before they reach the LLM.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon red">📸</div>
-          <h3>Media Filtering</h3>
-          <p>Blocks image, audio, and video attachments from multi-part messages. Prevents visual PII leakage via screenshots or screen recordings.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon indigo">🔑</div>
-          <h3>Session Encryption</h3>
-          <p>AES-256-GCM encryption for audit log entries and session data at rest. PBKDF2 key derivation from gateway key or auto-generated machine key.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon green">🔐</div>
-          <h3>PII Redaction</h3>
-          <p>Detects and redacts email, phone, SSN, credit cards, API keys, IPv4 addresses in both inputs and outputs. Zero-false-positive philosophy.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon orange">🌐</div>
-          <h3>Egress Allowlist</h3>
-          <p>EA_ALLOWED_DOMAINS blocks curl/wget to unlisted external hosts. Localhost always allowed. Prevents data exfiltration to unauthorized domains.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon blue">🔗</div>
-          <h3>Taint Tracking</h3>
-          <p>Tags sensitive data at ingress, detects at egress via SHA-256 hash + n-gram Jaccard + substring matching. Cross-session persistence with 24h TTL.</p>
-        </div>
+        <div class="card"><div class="card-icon indigo">📁</div><h3>File Access Gate</h3><p>2-layer path + content DLP. Blocks .env, .pem, credentials, SSH keys by filename, extension, and content scanning. Confidence-scored validation (Luhn, SSA, entropy).</p></div>
+        <div class="card"><div class="card-icon green">⌨️</div><h3>Exec Command Guard</h3><p>20+ shape-based regex rules. Blocks env dumps, pipe exfiltration, encoded commands, credential headers, scripted HTTP exfil. Low-confidence rules escalate to LLM verification.</p></div>
+        <div class="card"><div class="card-icon blue">🧠</div><h3>Prompt Intent Analysis</h3><p>4-layer pipeline: PII regex scan (10 decoding sublayers) → intent keywords → Pydantic classification rules → pluggable LLM verification (Ollama/Anthropic/OpenAI).</p></div>
+        <div class="card"><div class="card-icon orange">🔐</div><h3>PII Redaction</h3><p>Detects SSN, credit cards, API keys, JWTs, database URLs, private keys in inputs and outputs. Confidence-scored — Luhn for CC, SSA rules for SSN, entropy for secrets.</p></div>
+        <div class="card"><div class="card-icon purple">🔗</div><h3>Taint Tracking</h3><p>Tags sensitive data at ingress (file read, prompt). Detects at egress (tool call args, API responses) via SHA-256 hash + n-gram Jaccard. Cross-session persistence (24h TTL).</p></div>
+        <div class="card"><div class="card-icon red">🖼️</div><h3>Image DLP</h3><p>OCR via Tesseract, QR/barcode decode via pyzbar, EXIF metadata extraction. Extracted text runs through the full DLP pipeline with confidence scoring.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- Compliance -->
+  <!-- v1.4.0 Modules -->
   <section>
     <div class="container">
-      <div class="section-header">
-        <span class="section-eyebrow"><span class="dot"></span> Compliance</span>
-        <h2 class="section-title">Audit-ready from <span class="accent">day one</span></h2>
-      </div>
-      <div class="grid-2">
-        <div class="card">
-          <div class="card-icon green">📊</div>
-          <h3>Breach Compliance Engine</h3>
-          <p>13 fintech breach types covering PCI-DSS, SOX, and HIPAA. Rule-based classification — sub-1ms, deterministic, no hallucination risk.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon indigo">📝</div>
-          <h3>Immutable Audit Trail</h3>
-          <p>SHA-256 checksummed breach records, append-only SQLite, periodic tamper detection scans, and JSONL archival. Every event logged.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon purple">🤖</div>
-          <h3>Auto-Instrumentation</h3>
-          <p>Zero-code monkey-patching for OpenAI, Anthropic, and LangChain SDKs. Every LLM call monitored with zero application code changes.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon orange">⚠️</div>
-          <h3>Lethal Trifecta Detector</h3>
-          <p>Tracks 3 conditions: private data access + untrusted input + external comm capability. When all 3 met — MCP tools with network are blocked.</p>
-        </div>
+      <div class="section-header"><h2 class="section-title">v1.4.0 <span class="accent">New Modules</span></h2></div>
+      <div class="grid-3">
+        <div class="card"><div class="card-icon red">🔍</div><h3>Vulnerability Scanner</h3><p>OWASP Top 10 SAST-lite — SQL injection (CWE-89), XSS (CWE-79), command injection (CWE-78), path traversal, SSRF, insecure deserialization, hardcoded secrets. Integrated into Write/Edit hook.</p></div>
+        <div class="card"><div class="card-icon orange">🔀</div><h3>Smart Router</h3><p>14-model catalog across 4 providers. Task classifier detects code/chat/analysis/creative/math/simple. 5 strategies: auto, cheapest, fastest, best_quality, local_only. Failover across providers.</p></div>
+        <div class="card"><div class="card-icon purple">🔒</div><h3>Privacy Mode</h3><p>3 enforced modes. full_privacy: ollama-only, all cloud blocked. balanced: cloud allowed with DLP. permissive: log-only. One curl command switches the entire org.</p></div>
+        <div class="card"><div class="card-icon indigo">👁️</div><h3>Shadow AI Detector</h3><p>Registry of 12+ AI tools (Copilot, Cursor, Claude Code, Tabnine, Codeium, Windsurf, Aider, Continue, etc.). Process scanning + config file detection. Approved vs unauthorized.</p></div>
+        <div class="card"><div class="card-icon green">🧬</div><h3>Code Fingerprint Guard</h3><p>Registers proprietary code via n-gram fingerprinting. Detects when similar code appears in prompts even with renamed variables (Jaccard similarity). Locality-aware thresholds.</p></div>
+        <div class="card"><div class="card-icon blue">🕸️</div><h3>Knowledge Graph</h3><p>SQLite-backed graph of AGENT, THREAT, DATA_ASSET, SESSION nodes with typed edges. TTL expiry, event logging, incident chain traversal. Syncs to Obsidian vault.</p></div>
+        <div class="card"><div class="card-icon orange">📝</div><h3>Security Memory</h3><p>Obsidian-compatible vault: daily logs, threat intel notes, incident reports, agent profiles, policy decisions. YAML frontmatter + wiki-links for graph visualization.</p></div>
+        <div class="card"><div class="card-icon red">⚡</div><h3>Lethal Trifecta</h3><p>Simon Willison pattern — tracks private data access + untrusted input + external comm. When all 3 active, blocks MCP tools with network capabilities. State persisted.</p></div>
+        <div class="card"><div class="card-icon purple">🛡️</div><h3>Tool Call Guard</h3><p>MCP tool calls and function invocations intercepted. Arguments scanned through DLP + taint registry. Blocks exfiltration through the agent's own tools.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- Extensions -->
+  <!-- Distribution -->
   <section class="bg-warm">
     <div class="container">
-      <div class="section-header">
-        <span class="section-eyebrow"><span class="dot"></span> Extensions</span>
-        <h2 class="section-title">IDE and browser <span class="accent">protection</span></h2>
-      </div>
-      <div class="grid-2">
-        <div class="card">
-          <div class="card-icon blue">🧩</div>
-          <h3>VS Code / Cursor Extension</h3>
-          <p>Auto-disables Copilot for sensitive files. Maintains .copilotignore/.cursorignore/.aiignore. Inline secret diagnostics. Write protection — reverts AI edits to sensitive files. @security chat participant for prompt scanning.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon orange">🌐</div>
-          <h3>Chrome Extension</h3>
-          <p>DLP guard for browser-based AI tools (Claude web, ChatGPT, Gemini). Prevents PII and credentials from being pasted into LLM web interfaces.</p>
-        </div>
+      <div class="section-header"><h2 class="section-title">6 <span class="accent">Distribution Channels</span></h2></div>
+      <div class="grid-3">
+        <div class="card"><div class="card-icon indigo">⚡</div><h3>CLI Installer (as-init)</h3><p>One command auto-detects VS Code, Cursor, Claude Code, Copilot, Windsurf, Aider, Continue, Tabnine, Codeium. Drops configs, ignore files, and hooks automatically.</p></div>
+        <div class="card"><div class="card-icon green">🪝</div><h3>Pre-commit Hooks</h3><p>DLP scan + vulnerability scan on every git commit. Blocks secrets and SQL injection before they enter git history. Works with pre-commit framework or standalone.</p></div>
+        <div class="card"><div class="card-icon blue">🔄</div><h3>GitHub Action</h3><p>Scans PR diffs for PII, credentials, and OWASP vulnerabilities. Posts findings as PR comments with severity badges. One workflow file covers the entire org.</p></div>
+        <div class="card"><div class="card-icon orange">📊</div><h3>Admin Dashboard</h3><p>11-tab React UI: Overview, Events, Traces, Breaches, Privacy, Shadow AI, Graph, Routing, Block Rules, Agents, Settings. Real-time SSE updates.</p></div>
+        <div class="card"><div class="card-icon purple">🐳</div><h3>Docker</h3><p>3-service compose: gateway (8000), LLM proxy (18790), breach engine (8081). Optional Ollama sidecar. Non-root container, capability-dropped.</p></div>
+        <div class="card"><div class="card-icon red">🌐</div><h3>Chrome Extension</h3><p>Client-side DLP for ChatGPT, Claude, Gemini web UIs. Blocks PII before it reaches any cloud AI service. File upload interception + clipboard paste scanning.</p></div>
       </div>
     </div>
   </section>
 
-    <footer class="footer">
+  <section class="cta-section">
+    <div class="container" style="position:relative;z-index:1">
+      <h2 class="section-title" style="margin-bottom:1rem">500+ Tests, <span class="accent">Zero Gaps</span></h2>
+      <p class="section-sub" style="margin:0 auto 2rem;text-align:center">Including a 46-test adversarial red-team suite, 53-test smart router suite, and PII evasion eval with 10 encoding variants.</p>
+      <div style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap">
+        <a href="https://github.com/kaushikdharamshi/AgnosticSecurity" class="btn btn-primary btn-lg">View on GitHub →</a>
+        <a href="docs.html" class="btn btn-outline btn-lg">Read the Docs</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
     <div class="container">
       <div class="footer-grid">
-        <div>
-          <div class="footer-brand"><span class="icon">🔒</span> AgnosticSecurity</div>
-          <p class="footer-desc">Enterprise DLP for AI coding agents — model-agnostic security middleware that intercepts file reads, commands, prompts, API calls, and responses across all AI coding tools.</p>
-        </div>
-        <div>
-          <h4>Product</h4>
-          <a href="features.html" class="footer-link">Features</a>
-          <a href="pricing.html" class="footer-link">Pricing</a>
-          <a href="docs.html" class="footer-link">Docs</a>
-          <a href="https://github.com/kaushikdharamshi/AgnosticSecurity" target="_blank" class="footer-link">GitHub</a>
-        </div>
-        <div>
-          <h4>Company</h4>
-          <a href="about.html" class="footer-link">About</a>
-          <a href="blog.html" class="footer-link">Blog</a>
-          <a href="contact.html" class="footer-link">Contact</a>
-        </div>
-        <div>
-          <h4>Legal</h4>
-          <a href="#" class="footer-link">Privacy Policy</a>
-          <a href="#" class="footer-link">Terms of Service</a>
-          <a href="#" class="footer-link">Security</a>
-        </div>
+        <div><div class="footer-brand"><span class="icon">🔒</span> AgnosticSecurity</div><p class="footer-desc">Enterprise DLP for AI coding agents — 14 components, intelligent routing, and 6 distribution channels.</p></div>
+        <div><h4>Product</h4><a href="features.html" class="footer-link">Features</a><a href="pricing.html" class="footer-link">Pricing</a><a href="docs.html" class="footer-link">Docs</a><a href="https://github.com/kaushikdharamshi/AgnosticSecurity" target="_blank" class="footer-link">GitHub</a></div>
+        <div><h4>Company</h4><a href="about.html" class="footer-link">About</a><a href="blog.html" class="footer-link">Blog</a><a href="contact.html" class="footer-link">Contact</a></div>
+        <div><h4>Legal</h4><a href="#" class="footer-link">Privacy Policy</a><a href="#" class="footer-link">Terms of Service</a><a href="#" class="footer-link">Security</a></div>
       </div>
-      <div class="footer-bottom">
-        <span class="footer-copy">&copy; 2026 AgnosticSecurity. All rights reserved.</span>
-        <div class="footer-socials">
-          <a href="https://github.com/kaushikdharamshi/AgnosticSecurity" target="_blank">GitHub</a>
-        </div>
-      </div>
+      <div class="footer-bottom"><span class="footer-copy">&copy; 2026 AgnosticSecurity.</span><div class="footer-socials"><a href="https://github.com/kaushikdharamshi/AgnosticSecurity" target="_blank">GitHub</a></div></div>
     </div>
   </footer>
   <script src="js/main.js"></script>

