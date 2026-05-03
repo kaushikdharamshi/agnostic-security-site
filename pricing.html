@@ -3,8 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pricing — AgnosticSecurity</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔒</text></svg>">
+  <title>Pricing — SecureMind | Plans for Every Team</title>
+  <meta name="description" content="Simple, transparent pricing for SecureMind. Protect your developer environment from AI agent data leakage. Start free, upgrade as your team grows.">
+  <meta name="keywords" content="SecureMind pricing, DLP pricing, AI security plans, enterprise security cost, free AI security tool">
+  <meta name="author" content="SecureMind">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://securemind.live/pricing.html">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://securemind.live/pricing.html">
+  <meta property="og:site_name" content="SecureMind">
+  <meta property="og:title" content="Pricing — SecureMind | Plans for Every Team">
+  <meta property="og:description" content="Simple, transparent pricing for SecureMind. Protect your developer environment from AI agent data leakage. Start free, upgrade as your team grows.">
+  <meta property="og:image" content="https://securemind.live/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@securemindlive">
+  <meta name="twitter:title" content="Pricing — SecureMind | Plans for Every Team">
+  <meta name="twitter:description" content="Simple, transparent pricing for SecureMind. Start free, upgrade as your team grows.">
+  <meta name="twitter:image" content="https://securemind.live/og-image.png">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -26,7 +42,7 @@
 <body>
   <nav class="nav">
     <div class="nav-inner">
-      <a href="index.html" class="nav-brand"><span class="icon">🔒</span> <span class="highlight">Agnostic</span>Security</a>
+      <a href="index.html" class="nav-brand"><span class="icon">🧠</span> <span class="highlight">Secure</span>Mind</a>
       <button class="nav-toggle" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
       <div class="nav-links">
         <a href="index.html">Home</a>
@@ -122,7 +138,7 @@
         </div>
         <div class="upi-id">parthamehta10@okhdfcbank</div>
         <div style="margin:1.5rem 0;">
-          <a href="upi://pay?pa=parthamehta10@okhdfcbank&pn=AgnosticSecurity&am=999&cu=INR&tn=AgnosticSecurity%20Pro" class="gpay-btn" id="gpay-link">
+          <a href="upi://pay?pa=parthamehta10@okhdfcbank&pn=SecureMind&am=999&cu=INR&tn=SecureMind%20Pro" class="gpay-btn" id="gpay-link">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
             Pay with GPay
           </a>
@@ -245,11 +261,11 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <div class="footer-brand"><span class="icon">🔒</span> AgnosticSecurity</div>
+          <div class="footer-brand"><span class="icon">🧠</span> SecureMind</div>
           <p class="footer-desc">Enterprise DLP for AI coding agents — model-agnostic security middleware that intercepts file reads, commands, prompts, API calls, and responses across all AI coding tools.</p>
         </div>
         <div>
-          <h4>Product</h4>
+          <h4>Products</h4>
           <a href="features.html" class="footer-link">Features</a>
           <a href="pricing.html" class="footer-link">Pricing</a>
           <a href="docs.html" class="footer-link">Docs</a>
@@ -269,7 +285,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <span class="footer-copy">&copy; 2026 AgnosticSecurity. All rights reserved.</span>
+        <span class="footer-copy">&copy; 2026 SecureMind. All rights reserved.</span>
         <div class="footer-socials">
           <a href="https://github.com/secure-mind-live/agnostic-security-releases" target="_blank">GitHub</a>
         </div>
@@ -295,10 +311,10 @@
     document.getElementById('lic-plan').addEventListener('change', function() {
       var link = document.getElementById('gpay-link');
       var amounts = {'pro-monthly':'999','pro-annual':'7999','enterprise':'4999'};
-      var names = {'pro-monthly':'AgnosticSecurity%20Pro','pro-annual':'AgnosticSecurity%20Pro%20Annual','enterprise':'AgnosticSecurity%20Enterprise'};
+      var names = {'pro-monthly':'SecureMind%20Pro','pro-annual':'SecureMind%20Pro%20Annual','enterprise':'SecureMind%20Enterprise'};
       var am = amounts[this.value] || '2399';
-      var tn = names[this.value] || 'AgnosticSecurity%20Pro';
-      link.href = 'upi://pay?pa=parthamehta10@okhdfcbank&pn=AgnosticSecurity&am=' + am + '&cu=INR&tn=' + tn;
+      var tn = names[this.value] || 'SecureMind%20Pro';
+      link.href = 'upi://pay?pa=parthamehta10@okhdfcbank&pn=SecureMind&am=' + am + '&cu=INR&tn=' + tn;
     });
   </script>
 </body>

@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════════════════════
-   Sentinel — Global Styles
-   Design: Dark navy, indigo/purple accent (security platform feel)
+   SecureMind — Global Styles
+   Design: Deep dark, indigo/violet accent (intelligent security feel)
    ═══════════════════════════════════════════════════════════ */
 
 /* ── Variables ── */
@@ -61,6 +61,8 @@ html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
   font-family: var(--font-body);
   background: var(--bg);
+  background-image: radial-gradient(rgba(99, 102, 241, 0.045) 1px, transparent 1px);
+  background-size: 32px 32px;
   color: var(--text);
   line-height: 1.65;
   overflow-x: hidden;
